@@ -1,9 +1,7 @@
 {
-  "challenge_entries": 83,
-  "published_source_files": 1204,
+  "challenge_entries": 78,
+  "published_source_files": 335,
   "personal_writeups": 20,
-  "fixed_links": 101,
-  "original_references_as_text": 0,
   "broken_links": [],
   "broken_symlinks": [],
   "files_exceeding_github_limit": [],
@@ -25,5 +23,15 @@
       "file": "PWN/Stack/007.blind_pwn/att/exp_cons_search.py",
       "line": 30
     }
+  ],
+  "materialized_challenge_dependencies": [
+    "PWN/VM/038.下溢/ld-linux-x86-64.so.2",
+    "PWN/VM/038.下溢/libc.so.6",
+    "PWN/Heap/031.wdb_2018_1st_babyheap/ld-linux-x86-64.so.2",
+    "PWN/Heap/031.wdb_2018_1st_babyheap/libc.so.6",
+    "PWN/Heap/031.wdb_2018_1st_babyheap/libc-2.23.so",
+    "PWN/Heap/031.wdb_2018_1st_babyheap/ld-2.23.so",
+    "PWN/Stack/013.shellcode/env/libc.so.6",
+    "PWN/Stack/013.shellcode/env/ld-2.31.so"
   ]
 }

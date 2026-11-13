@@ -8,7 +8,7 @@
 | Build ID | `3ba705f8e341813d856795b1d9129dac61463c1c` |
 | sha256 | `d543022adba51c9dae97148280c09192dce6d67d11b3ae43353308e621ec5dda` |
 | 编译环境 | `GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.10)` |
-| 运行库 | [`libc/2.23/i386/`](../../../Environment/%E9%A2%98%E5%9E%8B/libc/2.23/i386/ORIGINAL_NOTES.md)（2.23-0ubuntu11.3，本地兼容候选） |
+| 运行库 | [`libc/2.23/i386/`](ORIGINAL_NOTES.md)（2.23-0ubuntu11.3，本地兼容候选） |
 
 这是格式化字符串题，单独归在 `格式化字符串/`。二进制未在 VM 运行，只做了静态归档。
 

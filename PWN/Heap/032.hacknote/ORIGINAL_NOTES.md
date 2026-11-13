@@ -2,7 +2,7 @@
 
 ## 题目附件
 
-本目录保留 `hacknote`、两个原 Python 脚本、IDA 数据库和历史文件。ELF 为 32 位 i386，interpreter 是 `/lib/ld-linux.so.2`。附件没有自带 libc/loader；运行库用 [`libc/2.23/i386/`](../../../Environment/%E9%A2%98%E5%9E%8B/libc/2.23/i386/ORIGINAL_NOTES.md)，是 2.23 的**本地兼容候选**，不表示它与远程服务精确匹配。
+本目录保留 `hacknote`、两个原 Python 脚本、IDA 数据库和历史文件。ELF 为 32 位 i386，interpreter 是 `/lib/ld-linux.so.2`。附件没有自带 libc/loader；运行库用 [`libc/2.23/i386/`](ORIGINAL_NOTES.md)，是 2.23 的**本地兼容候选**，不表示它与远程服务精确匹配。
 
 HITCON Training 官方仓库可以确认题目来自训练题集，但不能单独证明这份二进制对应的远程 glibc 版本：[HITCON Training](https://github.com/scwuaptx/hitcon-training)。
 

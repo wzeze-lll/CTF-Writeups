@@ -8,7 +8,7 @@
 | Build ID | `38c67cd31046e505ee0b71aeb170232225f3e11b` |
 | sha256 | `e3546c7a45479b44a15ecbd4fe98dfa4d63bacf49b267bf484331f78b75fc285` |
 | 编译环境 | `GCC: (Debian 6.4.0-2) 6.4.0 20170724` |
-| 运行库 | [`libc/2.23/i386/`](../../../Environment/%E9%A2%98%E5%9E%8B/libc/2.23/i386/ORIGINAL_NOTES.md)（本地兼容候选） |
+| 运行库 | [`libc/2.23/i386/`](ORIGINAL_NOTES.md)（本地兼容候选） |
 
 这是格式化字符串题，单独归在 `格式化字符串/`。
 

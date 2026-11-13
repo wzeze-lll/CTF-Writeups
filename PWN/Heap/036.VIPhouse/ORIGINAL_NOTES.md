@@ -9,7 +9,7 @@
 | sha256 | `ae7e0a365e1d94b31efb3578c8b5f8bad642f28a55c1e9a38c733846e2bb3763` |
 | 编译环境 | `GCC: (Ubuntu 11.3.0-1ubuntu1~22.04.1)` |
 | GLIBC 需求 | 需要 `GLIBC_2.34`，对应 Ubuntu 22.04 / glibc 2.35 |
-| 运行库 | [`libc/2.35/amd64/`](../../../Environment/%E9%A2%98%E5%9E%8B/libc/2.35/amd64/ORIGINAL_NOTES.md)（2.35-0ubuntu3.1，本地兼容候选） |
+| 运行库 | [`libc/2.35/amd64/`](ORIGINAL_NOTES.md)（2.35-0ubuntu3.1，本地兼容候选） |
 
 菜单是 `1. login in / 2. fmt / 3. uaf / 4. canary / 5. login out`，堆操作和格式化字符串混在一题里；按主要机制归到 `libc/2.35/amd64/` 下的堆题。二进制未在 VM 运行，只做了静态归档。
 

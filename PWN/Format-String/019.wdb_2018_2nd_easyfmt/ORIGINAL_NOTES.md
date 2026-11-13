@@ -9,7 +9,7 @@
 | 二进制 | `easyfmt`，**未 strip**，i386，Build ID `f86851c3576d0aabf0b0b2310d835d0f6e660eb8` |
 | sha256 | `2b1d4c17094269d4f0e60a3e2aadd32c625b324861826de22a06bad614697147` |
 | 编译环境 | `GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.10)`，interpreter `/lib/ld-linux.so.2` |
-| libc | 附件未附带；使用版本目录 [`libc/2.23/i386/`](../../../Environment/%E9%A2%98%E5%9E%8B/libc/2.23/i386) 的 2.23 运行库（i386/ubuntu:16.04，2.23-0ubuntu11.3） |
+| libc | 附件未附带；使用版本目录 `libc/2.23/i386/`（原记录引用） 的 2.23 运行库（i386/ubuntu:16.04，2.23-0ubuntu11.3） |
 
 题目只有 7596 字节，仓库里的 `easyFMT.zip` 也只有约 2.9 KB，包里不带 libc/loader。二进制按 Ubuntu 16.04 编译、只要求 `GLIBC_2.0`/`GLIBC_2.2.5` 老符号，所以归档到 2.23 i386；这是**本地兼容**，不证明远程就是 2.23-0ubuntu11.3 这个补丁版。
 
