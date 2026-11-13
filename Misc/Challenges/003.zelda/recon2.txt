@@ -1,0 +1,16 @@
+map teleport zora
+map show
+shop list
+map teleport rito
+map show
+shop list
+map teleport goron
+map show
+shop list
+map teleport gerudo
+map show
+shop list
+map teleport castle
+map show
+shop list
+quit

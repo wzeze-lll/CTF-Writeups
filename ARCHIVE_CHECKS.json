@@ -1,0 +1,29 @@
+{
+  "challenge_entries": 83,
+  "published_source_files": 1204,
+  "personal_writeups": 20,
+  "fixed_links": 101,
+  "original_references_as_text": 0,
+  "broken_links": [],
+  "broken_symlinks": [],
+  "files_exceeding_github_limit": [],
+  "source_changes": [],
+  "historical_scripts_needing_python_version_or_manual_completion": [
+    {
+      "file": "Reverse/Bytecode/002.attachment_398935dac220.pyc/recovered.py",
+      "line": 7
+    },
+    {
+      "file": "Reverse/Bytecode/002.attachment_398935dac220.pyc/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py",
+      "line": 7
+    },
+    {
+      "file": "PWN/Heap/031.wdb_2018_1st_babyheap/exp_old.py",
+      "line": 64
+    },
+    {
+      "file": "PWN/Stack/007.blind_pwn/att/exp_cons_search.py",
+      "line": 30
+    }
+  ]
+}

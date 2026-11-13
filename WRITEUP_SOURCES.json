@@ -1,0 +1,102 @@
+[
+  {
+    "source": "obsidian/wp/逆向/BUUCTF_不一样的flag_WP.md",
+    "destination": "Reverse/Native/023.不一样的flag.exe/notes/BUUCTF_不一样的flag_WP.md",
+    "source_sha256": "1d1a1238dc2db4cbea66b297d4fd9025a7f4b6114b2cc4777d81fce047ddf142"
+  },
+  {
+    "source": "obsidian/wp/逆向/BUUCTF_ACTF2020_rome_WP_学习版.md",
+    "destination": "Reverse/Native/020.rome.exe/notes/BUUCTF_ACTF2020_rome_WP_学习版.md",
+    "source_sha256": "50fbcc45071275b85ff1946ac273d70f4d3ddce5852e54c2f345f1e7ea2ee50c"
+  },
+  {
+    "source": "obsidian/wp/逆向/tuling_complete_WP_学习版.md",
+    "destination": "Reverse/Native/021.tuling_complete_1/notes/tuling_complete_WP_学习版.md",
+    "source_sha256": "d493dc7541eb4e531e1c04016ec306784fe806246a1a50bbb96b1a4d19ebe045"
+  },
+  {
+    "source": "obsidian/wp/逆向/FLARE_ON_2017_Challenge1_login_html_WP.md",
+    "destination": "Reverse/Native/003.54ad99d2400fd5c318eee7df65f2f8e8ad6942f7631af54f114ddcd8a171c5f0/notes/FLARE_ON_2017_Challenge1_login_html_WP.md",
+    "source_sha256": "9fee239a7e31ef798fb7d926ffa0e8db6ebbb9c774838f2de98eb4fad1e8e189"
+  },
+  {
+    "source": "obsidian/wp/逆向/BUUCTF_xor_WP.md",
+    "destination": "Reverse/Native/022.xor/notes/BUUCTF_xor_WP.md",
+    "source_sha256": "a1a1683739e4586378012ef1e4ceb01feb56d6a020fb905964a65e0c1c1270a9"
+  },
+  {
+    "source": "obsidian/wp/逆向/GWCTF2019_xxor_WP.md",
+    "destination": "Reverse/Native/022.xor/notes/GWCTF2019_xxor_WP.md",
+    "source_sha256": "b07711f03b7d832a9af922f6ac726e7655985e99cc5457cbd25be3aaa7142259"
+  },
+  {
+    "source": "obsidian/wp/格式化字符串漏洞/pwn118_wp.md",
+    "destination": "PWN/Format-String/024.pwn118/notes/pwn118_wp.md",
+    "source_sha256": "36d1f06f1d691eb2362ece815929e90ff8423851d33b515fc796aa83de5e781c"
+  },
+  {
+    "source": "obsidian/wp/堆/ciscn_2019_final_3_WP_学习版.md",
+    "destination": "PWN/Heap/034.ciscn_2019_final_3/notes/ciscn_2019_final_3_WP_学习版.md",
+    "source_sha256": "7a1bd6b337d60a6dc07d2bed19eac8989bcc5d216fe496734919c92230f25b4b"
+  },
+  {
+    "source": "obsidian/wp/堆/ciscn_2019_es_1_WP_学习版.md",
+    "destination": "PWN/Heap/033.ciscn_2019_es_1/notes/ciscn_2019_es_1_WP_学习版.md",
+    "source_sha256": "11732c65f80a18ad8e33daa00ae637f877a6e95170f9a7776a0779142f4c83c6"
+  },
+  {
+    "source": "obsidian/wp/堆/wdb_2018_1st_babyheap_WP_学习版.md",
+    "destination": "PWN/Heap/031.wdb_2018_1st_babyheap/notes/wdb_2018_1st_babyheap_WP_学习版.md",
+    "source_sha256": "f5682ca543063e97b6f2af2f6ac5afc9f23d92bb1e3074135706af6d4fbe7ea0"
+  },
+  {
+    "source": "obsidian/wp/堆/pwnable_tw_hacknote_学习版.md",
+    "destination": "PWN/Heap/032.hacknote/notes/pwnable_tw_hacknote_学习版.md",
+    "source_sha256": "525cf262e0c751bfda5b55641a85185ac9a3a7d7df7bac6409a2f1f55af473c3"
+  },
+  {
+    "source": "obsidian/wp/堆/picoctf_2018_are_you_root_WP_学习版.md",
+    "destination": "PWN/Heap/037.are_you_root/notes/picoctf_2018_are_you_root_WP_学习版.md",
+    "source_sha256": "951427d2f60f5fb40d11e6686f82f6f0607eaf09820759a1beed91caba01b6f8"
+  },
+  {
+    "source": "obsidian/wp/堆/hitb2018_gundam_WP_学习版.md",
+    "destination": "PWN/Heap/035.hitb2018_gundam/notes/hitb2018_gundam_WP_学习版.md",
+    "source_sha256": "9ddb673b416290617f7f7abb2bd60afa93c1dc6cb56ef953f170c9a4be393430"
+  },
+  {
+    "source": "obsidian/wp/栈与控制流/ciscn_2019_es_7_wp.md",
+    "destination": "PWN/Stack/029.ciscn_2019_es_7/notes/ciscn_2019_es_7_wp.md",
+    "source_sha256": "73cf917b02d35ec6972e26a962c56bac708432ea85a76880d988ca0f592ba0ab"
+  },
+  {
+    "source": "obsidian/wp/栈与控制流/get_started_3dsctf_2016_WP_学习版.md",
+    "destination": "PWN/Stack/002.get_started_3dsctf_2016/notes/get_started_3dsctf_2016_WP_学习版.md",
+    "source_sha256": "061d3d184720bd4b5129d95c46f9fec87595628f7df10ceb2fbb6cdc4e5e8ddb"
+  },
+  {
+    "source": "obsidian/wp/Canary与泄露/pwn119_wp.md",
+    "destination": "PWN/Stack/025.pwn119/notes/pwn119_wp.md",
+    "source_sha256": "6c2d84548cae8de183b99c613ba7d8e2e153a18038769ee5bfa688c019996ac2"
+  },
+  {
+    "source": "obsidian/wp/栈与控制流/shellcode_wp.md",
+    "destination": "PWN/Stack/013.shellcode/notes/shellcode_wp.md",
+    "source_sha256": "ef554d19548a93fba1ed4c3ef08911bb11ab2ddfa4ad5d9e1631ef471cf60858"
+  },
+  {
+    "source": "obsidian/wp/栈与控制流/babypie_wp.md",
+    "destination": "PWN/Stack/023.babypie/notes/babypie_wp.md",
+    "source_sha256": "ee7a096d450bcea9f89936c30a75227c247e60830169f5e9f00a6b5d9a16b3da"
+  },
+  {
+    "source": "obsidian/wp/栈与控制流/rootersctf_2019_srop_wp.md",
+    "destination": "PWN/Stack/030.rootersctf_2019_srop/notes/rootersctf_2019_srop_wp.md",
+    "source_sha256": "3d02287c406c88299391c29e2fc8497f9eb6fa57b05621233e70dc4ab1f6d471"
+  },
+  {
+    "source": "obsidian/wp/栈与控制流/caged_signal_wp.md",
+    "destination": "PWN/Stack/028.Caged_Signal/notes/caged_signal_wp.md",
+    "source_sha256": "bd817e1a6688d75285d0111f47a2a1b7e5389ae55d43a9ff4f5606c8aae8ff05"
+  }
+]
