@@ -4,7 +4,7 @@ PWN 与 RE 题目、附件和分析记录。
 
 ## 目录
 
-- [re](re/)：29 个条目，每题一个编号目录。
+- [re](re/)：27 个条目，每题一个编号目录。
 - [pwn](pwn/)：49 个条目，只分[栈](pwn/%E6%A0%88/)、[堆](pwn/%E5%A0%86/)、[内核](pwn/%E5%86%85%E6%A0%B8/)。
 
 ```text
@@ -31,3 +31,5 @@ CTF-Writeups/
 已有题解中的运行结果以原记录为准。本次调整完成静态归档检查，4 份历史脚本的 Python 版本或代码完整性问题见[检查记录](ARCHIVE_CHECKS.json)。
 
 [归档清单](ARCHIVE_MANIFEST.json) · [题解来源](WRITEUP_SOURCES.json) · [排除清单](EXCLUDED_FILES.md)
+
+RE 中已配对的本地 C/Python 代码全部归入对应题目，13 份 solve.py 和 6 份 C 复现程序完成本地运行核验；原稿的已知错误及动态验证范围见检查记录。

@@ -41,4 +41,4 @@
 - `pwn/内核/005.D3CTF_d3kheap2pro-revenge/run.sh`
 - `pwn/栈/030.考核_canary/exp.py`
 - `pwn/栈/030.考核_canary/exp_副本.py`
-- `re/002.attachment_398935dac220.pyc/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py`
+- `re/002.GWCTF2019_pyre/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py`

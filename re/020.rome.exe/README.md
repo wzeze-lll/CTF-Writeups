@@ -85,94 +85,18 @@ ACTF{Cae3ar_th4_Gre@t}
 下面脚本只依赖 Python 3，直接运行会输出正文，并用正向变换断言核验逆算没有写反：
 
 ```python
-cipher = b"Qsw3sj_lz4_Ujw@l"
-
-def decrypt_byte(c):
-    if 65 <= c <= 90:          # A..Z
-        return (c - 65 - 14) % 26 + 65
-    if 97 <= c <= 122:         # a..z
-        return (c - 97 - 18) % 26 + 97
-    return c
-
-def encrypt_byte(p):
-    if 65 <= p <= 90:
-        return (p - 65 + 14) % 26 + 65
-    if 97 <= p <= 122:
-        return (p - 97 + 18) % 26 + 97
-    return p
-
-plain = bytes(decrypt_byte(c) for c in cipher)
-assert bytes(encrypt_byte(p) for p in plain) == cipher
-
-print(plain.decode("ascii"))
-print("程序输入：ACTF{" + plain.decode("ascii") + "}")
-print("平台提交：flag{" + plain.decode("ascii") + "}")
+"""Invert the case-dependent rotations in the supplied rome sample."""
+from pathlib import Path
+encoded = "Qsw3sj_lz4_Ujw@l"
+sample = Path(__file__).with_name("rome.exe").read_bytes()
+assert all(bytes([0xc6, 0x45, 0xe3 + index, value]) in sample
+           for index, value in enumerate(encoded.encode()))
+answer = []
+for character in encoded:
+    if "A" <= character <= "Z":
+        character = chr((ord(character) - 65 - 14) % 26 + 65)
+    elif "a" <= character <= "z":
+        character = chr((ord(character) - 97 - 18) % 26 + 97)
+    answer.append(character)
+print("".join(answer))
 ```
-
-预期输出：
-
-```text
-Cae3ar_th4_Gre@t
-程序输入：ACTF{Cae3ar_th4_Gre@t}
-平台提交：flag{Cae3ar_th4_Gre@t}
-```
-
-`assert` 的意义是把明文重新加密，必须逐字节还原成原密文。若失败，优先检查偏移、大小写范围和特殊字符处理。
-
-#### IDA 里的栈变量如何组成输入
-
-反编译器可能把连续的输入缓冲区拆成多个局部变量，例如 5 个 `char`、4 个 `DWORD`、再一个 `char`。不能只按变量名判断它们是否相邻，要看 IDA 标出的栈偏移。
-
-这份伪代码中，前缀、正文和结束花括号落在连续的局部变量位置；4 个 DWORD 共占 16 字节，实际可以承载正文的 16 个字符。x86 是小端序，DWORD 若按整数显示，字节顺序会反过来；但程序通过 `char *` 逐字节读取时，应以地址从低到高的字节顺序理解。
-
-```text
-输入缓冲区的逻辑内容：
-偏移  0..4   ACTF{
-偏移  5..20  16 字节正文：Cae3ar_th4_Gre@t
-偏移 21      }
-随后          scanf 写入字符串结尾 \0（实际落点以该二进制的栈偏移为准）
-```
-
-以上是这道样本的局部变量布局，不是 C 语言或编译器对所有程序的通用保证。分析其他题时，要重新核对栈偏移、变量大小和指针读写方向。
-
-#### 做题时的判断顺序
-
-1. 从成功/失败比较点反向找目标字符串和输入缓冲区。
-2. 找出输入格式：前缀、正文长度、后缀分别是什么。
-3. 把每个字符分支改写成“字母序号 + 偏移，再对 26 取余”。
-4. 逆算时对每个分支减去偏移；非字母按伪代码决定是否原样保留。
-5. 用脚本正向加密回密文，检查每个字节完全一致。
-6. 将恢复出的正文放回程序要求的格式；平台 flag 外壳单独确认。
-
-#### 常见误区
-
-- **只看到范围就觉得答案确定了**：范围只用于选择处理规则，仍要做逆运算。
-- **把加密公式原样再算一次当解密**：循环移位的逆运算是反方向移相同格数。
-- **把整串都按字母移动**：本题数字、下划线和 `@` 走原样分支。
-- **误读 `% 26`**：先减去 `A` 或 `a` 转为 `0..25` 的字母序号，计算会更清楚。
-- **把局部变量名当作真实结构**：IDA 的 `DWORD` 只是反编译器的类型视图；相邻与否要看栈偏移。
-- **把程序输入和平台 flag 混为一谈**：本题伪代码检查 `ACTF{...}`，提交平台时可能要求 `flag{...}`。
-- **忽略 `scanf("%s", ...)` 的长度限制问题**：`%s` 不指定最大宽度时有越界风险；本题按预期长度分析即可，不能把它当作安全的通用输入写法。
-
-#### 练习与复测
-
-不看上面的脚本，解释这三个字符为什么这样还原：
-
-```text
-Q → C
-s → a
-@ → @
-```
-
-再把密文中一个大写字母替换成另一个大写字母，运行脚本确认逆算和正算仍能互相验证。隔 48 小时后，尝试只根据两条分支公式独立写出解密函数。
-
-#### 资料
-
-- [jentle：ACTF 新生赛 2020 rome 伪代码分析](https://www.cnblogs.com/jentleTao/p/12642500.html)：重点看 IDA 中的输入缓冲区、字符变换分支和目标字符串。
-- [Viegoo：ACTF 新生赛 2020 rome 脚本题解](https://www.cnblogs.com/Viegoo/p/16491814.html)：重点看模 26 逆算与最终 flag 包装格式。
-- 相关知识：`基础运算与XOR逆算` · `RE知识体系与题型地图` · `RE题目与WP索引`
-
-
-# EXP
-
-当前归档中没有已识别的 EXP / 求解脚本。

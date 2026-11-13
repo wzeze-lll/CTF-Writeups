@@ -16,7 +16,7 @@
   },
   {
     "source": "obsidian/wp/逆向/FLARE_ON_2017_Challenge1_login_html_WP.md",
-    "destination": "re/003.54ad99d2400fd5c318eee7df65f2f8e8ad6942f7631af54f114ddcd8a171c5f0/notes/FLARE_ON_2017_Challenge1_login_html_WP.md",
+    "destination": "re/003.FLAREON2017_login_html/notes/FLARE_ON_2017_Challenge1_login_html_WP.md",
     "source_sha256": "9fee239a7e31ef798fb7d926ffa0e8db6ebbb9c774838f2de98eb4fad1e8e189"
   },
   {
@@ -98,5 +98,20 @@
     "source": "obsidian/wp/栈与控制流/caged_signal_wp.md",
     "destination": "pwn/栈/024.Caged_Signal/notes/caged_signal_wp.md",
     "source_sha256": "bd817e1a6688d75285d0111f47a2a1b7e5389ae55d43a9ff4f5606c8aae8ff05"
+  },
+  {
+    "source": "obsidian/wp/逆向/BUUCTF_刮开有奖_WP_学习版.md",
+    "destination": "re/012.刮开有奖/notes/BUUCTF_刮开有奖_WP_学习版.md",
+    "source_sha256": "f82855d1e2511f3db0dd0ce9be465532d4347d392446d2fe9e701d3620c734da"
+  },
+  {
+    "source": "obsidian/wp/逆向/BUUCTF_findit_Android_WP_学习版.md",
+    "destination": "re/004.findit/notes/BUUCTF_findit_Android_WP_学习版.md",
+    "source_sha256": "024b57f05c668af14949778435207ece4f076f082c0564be80498e5f1b49eb84"
+  },
+  {
+    "source": "obsidian/wp/逆向/BUUCTF_SimpleRev_WP_学习版.md",
+    "destination": "re/006.SimpleRev/notes/BUUCTF_SimpleRev_WP_学习版.md",
+    "source_sha256": "2b84069cf0ae6d9d07e0e0f25bddd70ae7b44360ce6cbfd3d9fb8e236927a4b3"
   }
 ]

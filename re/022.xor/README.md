@@ -72,61 +72,14 @@ p[i] = c[i] ^ c[i - 1]
 #### 解密脚本
 
 ```python
-c = bytes.fromhex(
-    "660a6b0c77264f2e4011780d5a3b5511"
-    "7019461f76224d23440e6706680f47324f"
-)
-p = bytes([c[0]]) + bytes(c[i] ^ c[i - 1] for i in range(1, len(c)))
-print(p.decode())
-```
-
-运行结果：
-
-```text
-flag{QianQiuWanDai_YiTongJiangHu}
-```
-
-#### 如果拿到原附件，这样复核
-
-1. `file xor` / `checksec` 确认架构；`strings -a xor | grep -i flag` 先看有没有明文提示。
-2. IDA 打开，找 `main`，定位输入读取（`scanf`/`fgets`/`read`）和比较循环。
-3. 确认循环是 `buf[i] ^= buf[i-1]` 还是 `out[i] = in[i] ^ in[i-1]`：
-   - 同一数组、同一指针 → 就地，用 `c[i] ^ c[i-1]`。
-   - 两个数组 → 非就地，用 `c[i] ^ p[i-1]`。
-4. 从 IDA 导出密文（Shift+E 或 `get_bytes`），替换脚本里的 hex。
-5. 把解出的输入交回程序运行，确认输出成功。
-
-#### 变形与迁移
-
-| 变形 | 逆算 |
-|---|---|
-| `buf[i] ^= buf[i-1]` | `p[i] = c[i] ^ c[i-1]` |
-| `buf[i] ^= key` | `p[i] = c[i] ^ key` |
-| `buf[i] ^= buf[i-1] ^ key` | `p[i] = c[i] ^ c[i-1] ^ key` |
-| 从后往前就地 XOR | 逆序处理，`p[i] = c[i] ^ c[i+1]` |
-| 先 XOR 再加减/移位 | 先逆移位/加减，再逆 XOR |
-
-#### 复盘
-
-- 这题不难，价值在“**读写同一块内存**”这个语义。C 代码里一个 `buf[i] ^= buf[i-1]` 就足以让按数学公式硬套的人翻车。
-- 判断就地/非就地，看反汇编里的目的操作数是不是同一个地址，比看伪代码更可靠。
-- 首字节通常是不变点，可作为快速校验：解出来第一个字符应是 `f`。
-
-#### 相关笔记
-
-`基础运算与XOR逆算` · `RE题目与WP索引` · `RE导航` · `常见加密算法识别与还原` · `WP索引与复盘入口`
-
-
-# EXP
-
-- [1.py](1.py)
-
-脚本按已有材料保留，使用前核对目标程序、运行库和参数。公开副本中的历史服务地址已替换，需自行设置。
-
-```python
-c = bytes.fromhex(
-    "660a6b0c77264f2e4011780d5a3b55117019461f76224d23440e6706680f47324f00"
-)
-p = bytes([c[0]]) + bytes(c[i] ^ c[i - 1] for i in range(1, len(c)))
-print(p.decode())
+"""Decode 33 ciphertext bytes; the trailing NUL in original 1.py is a terminator."""
+from pathlib import Path
+encoded = bytes.fromhex("660a6b0c77264f2e4011780d5a3b55117019461f76224d23440e6706680f47324f")
+assert encoded in Path(__file__).with_name("xor").read_bytes()
+plain = bytes([encoded[0]]) + bytes(encoded[index] ^ encoded[index - 1] for index in range(1, len(encoded)))
+forward = bytearray(plain)
+for index in range(1, len(forward)):
+    forward[index] ^= forward[index - 1]
+assert bytes(forward) == encoded
+print(plain.decode("ascii"))
 ```

@@ -1,18 +1,18 @@
 {
-  "challenge_entries": 78,
-  "published_source_files": 335,
-  "personal_writeups": 20,
+  "challenge_entries": 76,
+  "published_source_files": 343,
+  "personal_writeups": 23,
   "broken_links": [],
   "broken_symlinks": [],
   "files_exceeding_github_limit": [],
   "source_changes": [],
   "historical_scripts_needing_python_version_or_manual_completion": [
     {
-      "file": "re/002.attachment_398935dac220.pyc/recovered.py",
+      "file": "re/002.GWCTF2019_pyre/recovered.py",
       "line": 7
     },
     {
-      "file": "re/002.attachment_398935dac220.pyc/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py",
+      "file": "re/002.GWCTF2019_pyre/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py",
       "line": 7
     },
     {
@@ -28,6 +28,17 @@
     "pwn/栈": 31,
     "pwn/堆": 13,
     "pwn/内核": 5,
-    "re": 29
+    "re": 27
+  },
+  "reverse_code_verification": {
+    "python_solvers": 13,
+    "python_passed": 13,
+    "c_programs": 6,
+    "c_passed": 6,
+    "scope": "在本机运行求解脚本和 C 复现程序，含部分附件特征检查与正向回验；未在 Windows 或 Android 设备动态运行原题。",
+    "preserved_drafts_with_known_logic_issue": [
+      "re/007.Java逆向解密/1.c",
+      "re/022.xor/1.py"
+    ]
   }
 }

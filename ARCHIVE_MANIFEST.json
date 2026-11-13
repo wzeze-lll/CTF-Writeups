@@ -2108,7 +2108,7 @@
   },
   {
     "source": "buu/0d1ac4a5958003726e95e51f9821e3dfd14a27a85d8476bf6637889946b6e94b.exe",
-    "destination": "re/001.attachment_0d1ac4a59580.exe/0d1ac4a5958003726e95e51f9821e3dfd14a27a85d8476bf6637889946b6e94b.exe",
+    "destination": "re/001.BJDCTF2020_JustRE/0d1ac4a5958003726e95e51f9821e3dfd14a27a85d8476bf6637889946b6e94b.exe",
     "source_sha256": "f0e826efe5e03808faae4a870f87cdb2e3a0311542ad92cb673924cedb1553ae",
     "published_sha256": "f0e826efe5e03808faae4a870f87cdb2e3a0311542ad92cb673924cedb1553ae",
     "status": "已归档"
@@ -2122,70 +2122,70 @@
   },
   {
     "source": "buu/2.py",
-    "destination": "re/028.SimpleRev_逆算脚本/2.py",
+    "destination": "re/006.SimpleRev/2.py",
     "source_sha256": "7b57936f35f4c968b7850cee9fcfb8c543612c41f78858021225930a7582ab6c",
     "published_sha256": "7b57936f35f4c968b7850cee9fcfb8c543612c41f78858021225930a7582ab6c",
     "status": "已归档"
   },
   {
     "source": "buu/333.py",
-    "destination": "re/002.attachment_398935dac220.pyc/333.py",
+    "destination": "re/002.GWCTF2019_pyre/333.py",
     "source_sha256": "079c0342a2e12ca0f8575e2931c3ff91e1e395156147df0d36d6204b5fcf277a",
     "published_sha256": "079c0342a2e12ca0f8575e2931c3ff91e1e395156147df0d36d6204b5fcf277a",
     "status": "已归档"
   },
   {
     "source": "buu/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5.pyc",
-    "destination": "re/002.attachment_398935dac220.pyc/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5.pyc",
+    "destination": "re/002.GWCTF2019_pyre/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5.pyc",
     "source_sha256": "7a7cbc6c084e6961a9b8d498890a2290385a01cb3deab3c9e823ce12fc6fa870",
     "published_sha256": "7a7cbc6c084e6961a9b8d498890a2290385a01cb3deab3c9e823ce12fc6fa870",
     "status": "已归档"
   },
   {
     "source": "buu/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py",
-    "destination": "re/002.attachment_398935dac220.pyc/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py",
+    "destination": "re/002.GWCTF2019_pyre/398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5_decompiled.py",
     "source_sha256": "0881cf642aca8b92947cc00ee6529d62f40c27ce4bf722429fa196a381edc788",
     "published_sha256": "502c89a07f8857cf8cd67836ac5d02b7be62c8303986df9bcce06c4d2c2b4f39",
     "status": "已归档"
   },
   {
     "source": "buu/54ad99d2400fd5c318eee7df65f2f8e8ad6942f7631af54f114ddcd8a171c5f0/Description.txt",
-    "destination": "re/003.54ad99d2400fd5c318eee7df65f2f8e8ad6942f7631af54f114ddcd8a171c5f0/Description.txt",
+    "destination": "re/003.FLAREON2017_login_html/Description.txt",
     "source_sha256": "62e6289c74999e5bb31163abf2e42c126caec3327e26e78e6a9d72fa24065880",
     "published_sha256": "62e6289c74999e5bb31163abf2e42c126caec3327e26e78e6a9d72fa24065880",
     "status": "已归档"
   },
   {
     "source": "buu/54ad99d2400fd5c318eee7df65f2f8e8ad6942f7631af54f114ddcd8a171c5f0/login.html",
-    "destination": "re/003.54ad99d2400fd5c318eee7df65f2f8e8ad6942f7631af54f114ddcd8a171c5f0/login.html",
+    "destination": "re/003.FLAREON2017_login_html/login.html",
     "source_sha256": "b21633a4134a29462b1dd69bc8638358fd66472068b11ef56e7a6eedfcb24ebb",
     "published_sha256": "b21633a4134a29462b1dd69bc8638358fd66472068b11ef56e7a6eedfcb24ebb",
     "status": "已归档"
   },
   {
     "source": "buu/6a428ff2-25d7-403c-b28e-3f980a10a5a2.apk",
-    "destination": "re/004.6a428ff2-25d7-403c-b28e-3f980a10a5a2.apk/6a428ff2-25d7-403c-b28e-3f980a10a5a2.apk",
+    "destination": "re/004.findit/6a428ff2-25d7-403c-b28e-3f980a10a5a2.apk",
     "source_sha256": "53b2a2a13ee72614dd650b2dee4fa6399b8d5cc3a1555bd823ade27772fd7eae",
     "published_sha256": "53b2a2a13ee72614dd650b2dee4fa6399b8d5cc3a1555bd823ade27772fd7eae",
     "status": "已归档"
   },
   {
     "source": "buu/7ea2fc42d5bf465ce996d7dc5a6260a03038089a06fe7ce56695539fabc926f2.apk",
-    "destination": "re/005.attachment_7ea2fc42d5bf.apk/7ea2fc42d5bf465ce996d7dc5a6260a03038089a06fe7ce56695539fabc926f2.apk",
+    "destination": "re/005.helloworld/7ea2fc42d5bf465ce996d7dc5a6260a03038089a06fe7ce56695539fabc926f2.apk",
     "source_sha256": "3663471de7741fcf7df5629500fce8579e03d5f5c72264e96654eb837d384aee",
     "published_sha256": "3663471de7741fcf7df5629500fce8579e03d5f5c72264e96654eb837d384aee",
     "status": "已归档"
   },
   {
     "source": "buu/7f7222764a31e77bcc09c7f15f80230849e1d9075a1c0c1f5bb421a144652c25",
-    "destination": "re/006.attachment_7f7222764a31/7f7222764a31e77bcc09c7f15f80230849e1d9075a1c0c1f5bb421a144652c25",
+    "destination": "re/006.SimpleRev/7f7222764a31e77bcc09c7f15f80230849e1d9075a1c0c1f5bb421a144652c25",
     "source_sha256": "f195698b9275fd71a8f3f651aeccee0c423cdbcd75a59d1c263dfaff0b39edc7",
     "published_sha256": "f195698b9275fd71a8f3f651aeccee0c423cdbcd75a59d1c263dfaff0b39edc7",
     "status": "已归档"
   },
   {
     "source": "buu/Reverse.class",
-    "destination": "re/007.Reverse.class/Reverse.class",
+    "destination": "re/007.Java逆向解密/Reverse.class",
     "source_sha256": "eba974639046609dbbefdf71255914d0277ebe07b3e45b374c171117bb956f1e",
     "published_sha256": "eba974639046609dbbefdf71255914d0277ebe07b3e45b374c171117bb956f1e",
     "status": "已归档"
@@ -2220,7 +2220,7 @@
   },
   {
     "source": "buu/e290a2112fa5e3068dcc990b842bc6fcabb8dac5949986a60f2cd56239d94c58.exe",
-    "destination": "re/012.attachment_e290a2112fa5.exe/e290a2112fa5e3068dcc990b842bc6fcabb8dac5949986a60f2cd56239d94c58.exe",
+    "destination": "re/012.刮开有奖/e290a2112fa5e3068dcc990b842bc6fcabb8dac5949986a60f2cd56239d94c58.exe",
     "source_sha256": "581f5ce57ce3b9363013d8d1b249b5fa2f7de9f08364232a6c6fafd1dfad0e89",
     "published_sha256": "581f5ce57ce3b9363013d8d1b249b5fa2f7de9f08364232a6c6fafd1dfad0e89",
     "status": "已归档"
@@ -2234,7 +2234,7 @@
   },
   {
     "source": "buu/exp.py",
-    "destination": "re/029.Base64_逆算脚本/exp.py",
+    "destination": "re/019.reverse_3.exe/exp.py",
     "source_sha256": "644fd53d838a112b5c24fbaf433579d62477d745647739a5e0e3b2f7553f3505",
     "published_sha256": "644fd53d838a112b5c24fbaf433579d62477d745647739a5e0e3b2f7553f3505",
     "status": "已归档"
@@ -2262,7 +2262,7 @@
   },
   {
     "source": "buu/recovered.py",
-    "destination": "re/002.attachment_398935dac220.pyc/recovered.py",
+    "destination": "re/002.GWCTF2019_pyre/recovered.py",
     "source_sha256": "1c77b4b5d12bb42fe5a35a4c3337f7eee7f4be30ac7860e0519b91c99ee26564",
     "published_sha256": "1c77b4b5d12bb42fe5a35a4c3337f7eee7f4be30ac7860e0519b91c99ee26564",
     "status": "已归档"
@@ -2342,6 +2342,62 @@
     "destination": "re/027.诸神的三试炼/诸神的三试炼.exe",
     "source_sha256": "64ecf72ef8a263618d23c480796b713bc37b9ac109286c69aa07226537c240c4",
     "published_sha256": "64ecf72ef8a263618d23c480796b713bc37b9ac109286c69aa07226537c240c4",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/1.c",
+    "destination": "re/007.Java逆向解密/1.c",
+    "source_sha256": "4f1edabadbd505501c6d679597a763c5363e21485980e015af703b3c24f0a801",
+    "published_sha256": "46b8fde24433cef254908b48ab29f22abada315f3049afc503e5e358ede69926",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/3.py",
+    "destination": "re/007.Java逆向解密/3.py",
+    "source_sha256": "ad4b42c65794e184a07f44c7bf85a2878a38d86c60eaf57ff08c05a27320fe88",
+    "published_sha256": "ad4b42c65794e184a07f44c7bf85a2878a38d86c60eaf57ff08c05a27320fe88",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/111.py",
+    "destination": "re/014.ez_maze.exe/111.py",
+    "source_sha256": "5a6e7fb87a0295e716f0a399843992d52af7c988439df48324ccef3921585763",
+    "published_sha256": "5a6e7fb87a0295e716f0a399843992d52af7c988439df48324ccef3921585763",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/3.c",
+    "destination": "re/015.luck_guy/3.c",
+    "source_sha256": "b39753e86ecd02833b9238075461707bc231f61b4950c5370e68110127f31903",
+    "published_sha256": "b39753e86ecd02833b9238075461707bc231f61b4950c5370e68110127f31903",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/1111.c",
+    "destination": "re/015.luck_guy/1111.c",
+    "source_sha256": "b39753e86ecd02833b9238075461707bc231f61b4950c5370e68110127f31903",
+    "published_sha256": "b39753e86ecd02833b9238075461707bc231f61b4950c5370e68110127f31903",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/123.c",
+    "destination": "re/012.刮开有奖/123.c",
+    "source_sha256": "637a7133df8d336363a4b95a554ad6015f4a4178c0043470dc3f56b3ab2408f2",
+    "published_sha256": "637a7133df8d336363a4b95a554ad6015f4a4178c0043470dc3f56b3ab2408f2",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/21.c",
+    "destination": "re/020.rome.exe/21.c",
+    "source_sha256": "7079f64ee0f04ee3f9ca07e1ac86d4f0b4d5e42a73df4e84ceeb9529094db011",
+    "published_sha256": "7079f64ee0f04ee3f9ca07e1ac86d4f0b4d5e42a73df4e84ceeb9529094db011",
+    "status": "已归档"
+  },
+  {
+    "source": "buu/2.c",
+    "destination": "re/026.简单注册器.apk/2.c",
+    "source_sha256": "db189ae404c36c7d5544c9adaf933ae0cf2faf5caff7402bd1ddb2f862cc8f95",
+    "published_sha256": "db189ae404c36c7d5544c9adaf933ae0cf2faf5caff7402bd1ddb2f862cc8f95",
     "status": "已归档"
   }
 ]
