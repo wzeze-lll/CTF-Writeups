@@ -1,4 +1,4 @@
-"""Same inverse as the user's 2.py, with a forward check."""
+"""Same inverse as the user's solve2.py, with a forward check."""
 text = "killshadow"
 key = "adsfkndcls"
 answer = []

@@ -19,4 +19,4 @@ code = [4, 5, 6, 7, 8, 9, 10, 11, 12, 9, 13, 14, 15, 16, 17, 18, 19, 20,
  10, 21, 22, 23, 24]
 return
 
-# okay decompiling 398935dac2207070e4e6a1e42219f49fbf68c1038e35e4e819bd8e568f1a43a5.pyc
+# okay decompiling pyre.pyc

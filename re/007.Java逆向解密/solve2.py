@@ -1,4 +1,4 @@
-"""Decode the same bytes as 1.c: XOR with 0x20, then subtract 64."""
+"""Decode the same bytes as draft_incorrect.c: XOR with 0x20, then subtract 64."""
 
 key = (
     180, 136, 137, 147, 191, 137, 147, 191, 148, 136,
