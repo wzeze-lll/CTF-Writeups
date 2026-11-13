@@ -1,29 +1,33 @@
 # CTF Writeups
 
-PWN 与逆向的个人学习归档。
+PWN 与 RE 题目、附件和分析记录。
 
-## 方向
+## 目录
 
-- [PWN](PWN/)：49 个条目
-- [Reverse](Reverse/)：29 个条目
+- [re](re/)：29 个条目，每题一个编号目录。
+- [pwn](pwn/)：49 个条目，只分[栈](pwn/%E6%A0%88/)、[堆](pwn/%E5%A0%86/)、[内核](pwn/%E5%86%85%E6%A0%B8/)。
 
-## 题目格式
+```text
+CTF-Writeups/
+├── re/
+│   ├── 001.题名/
+│   └── ...
+└── pwn/
+    ├── 栈/
+    │   ├── 001.题名/
+    │   └── ...
+    ├── 堆/
+    │   ├── 001.题名/
+    │   └── ...
+    └── 内核/
+        ├── 001.题名/
+        └── ...
+```
 
-每题采用 `编号.题名/README.md`，正文为“知识点 → 题目分析 → EXP”，图片目录为 `isset/`。文件和已有分析随题保存。
+每个分类从 001 连续编号，每题保留对应附件、脚本和已有题解。README 采用“知识点 → 题目分析 → EXP”，题内图片放在 isset/。格式参考 [Real-Simplicity / BUUCTF-Pwn](https://github.com/Real-Simplicity/BUUCTF-Pwn/tree/main/012.get_started_3dsctf_2016)。
 
-格式参考 [Real-Simplicity / BUUCTF-Pwn](https://github.com/Real-Simplicity/BUUCTF-Pwn/tree/main/012.get_started_3dsctf_2016)。本仓库使用自己的附件和已有笔记，未复制范例题解或图片。
+格式化字符串题归入栈目录；存在堆对象漏洞的 VM、IoT 题归入堆目录。其他 VM／表达式栈题及全局覆盖题的具体归类说明写在题目页。
 
-## 归档说明
+已有题解中的运行结果以原记录为准。本次调整完成静态归档检查，4 份历史脚本的 Python 版本或代码完整性问题见[检查记录](ARCHIVE_CHECKS.json)。
 
-- 来源为 buuctf、题型、D3ctf、考核、逆向 buu 五个本地目录，补入可匹配的个人题解。
-- 标题未知或题型不明确的附件保留原始标识，分析状态以各题记录为准。
-- Linux ELF、Windows PE 和 APK 需在对应环境中验证；本次仅整理和静态核验。已有题解中的实测表述属于原记录。
-- 同内容二进制采用相对符号链接；正常 Git 克隆会保留，Windows 需要启用符号链接支持。
-- 历史远端地址和本机用户路径已替换；公开副本不包含私钥、比赛结果文件、调试数据库和临时日志。TLS 练习需要时自行生成本地证书密钥。
-- [归档清单](ARCHIVE_MANIFEST.json) 给出源目录到目标文件及 SHA-256；[排除清单](EXCLUDED_FILES.md) 列明未发布的文件和原因。
-
-仅用于公开 CTF、课程与授权实验。
-
-## 静态检查
-
-78 个条目，补入 20 份已有个人题解；本地链接与符号链接均可解析，所有附件均小于 GitHub 单文件限制。4 份历史脚本存在 Python 版本或不完整代码问题，详情见 [检查记录](ARCHIVE_CHECKS.json)。这些脚本作为原始研究材料保留。
+[归档清单](ARCHIVE_MANIFEST.json) · [题解来源](WRITEUP_SOURCES.json) · [排除清单](EXCLUDED_FILES.md)
